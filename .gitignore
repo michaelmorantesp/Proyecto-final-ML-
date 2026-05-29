@@ -1,0 +1,42 @@
+# Datos crudos (pesados, se reproducen desde fuentes oficiales — ver README)
+data/geih/*.zip
+data/geih/csv/
+data/pqrs/*.csv
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Modelos Spark guardados
+bloque2_ml/models/*
+
+# Cache de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Cache de HuggingFace (si llegara a quedar fuera del contenedor)
+.cache/
+
+# Spark
+spark-warehouse/
+metastore_db/
+derby.log
+
+# Entornos virtuales locales (no usar — el entorno autorizado es Docker)
+.venv/
+venv/
+env/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Reportes generados (el PDF final SÍ se versiona)
+img/*.png
+img/*.jpg
+!img/.gitkeep

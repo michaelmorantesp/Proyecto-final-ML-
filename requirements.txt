@@ -1,0 +1,21 @@
+# NLP / modelo pre-entrenado HuggingFace
+transformers==4.44.2
+torch==2.4.1
+pysentimiento==0.7.3
+sentencepiece==0.2.0
+emoji==2.12.1
+
+# Data utilities (Spark ya viene en la imagen base pyspark-notebook)
+pandas==2.2.2
+pyarrow==17.0.0
+
+# Visualización
+matplotlib==3.9.2
+seaborn==0.13.2
+wordcloud==1.9.3
+
+# Métricas auxiliares (solo utilidades fuera de Spark ML)
+scikit-learn==1.5.2
+
+# Descarga reproducible de PQRS
+requests==2.32.3

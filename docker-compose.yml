@@ -1,0 +1,27 @@
+# Proyecto Final · ML con PySpark y Docker · Michael Morantes
+#
+# Levanta JupyterLab con PySpark y todas las dependencias del proyecto.
+# Comando: docker-compose up --build
+# Luego abrir el enlace con token que imprime el contenedor en la terminal.
+
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: proyecto_final_morantes:latest
+    container_name: proyecto_final_morantes
+    ports:
+      - "8889:8888"   # JupyterLab
+      - "4041:4040"   # Spark UI (driver)
+    volumes:
+      - .:/home/jovyan/work
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+      # Memoria del driver Spark — 4 GB cubre con holgura el corte mensual GEIH.
+      SPARK_OPTS: "--driver-java-options=-Xms1024M --driver-memory=4G"
+      # Evita warnings de Arrow en toPandas() con tipos timestamp.
+      PYARROW_IGNORE_TIMEZONE: "1"
+    working_dir: /home/jovyan/work
+    # Sin auth para uso local; si se expone fuera del host, retirar esta línea.
+    command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''
