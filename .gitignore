@@ -1,7 +1,4 @@
-# Datos crudos (pesados, se reproducen desde fuentes oficiales — ver README)
-data/geih/*.zip
-data/geih/csv/
-data/pqrs/*.csv
+# Datos crudos
 
 # Jupyter
 .ipynb_checkpoints/
